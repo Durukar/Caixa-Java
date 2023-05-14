@@ -36,7 +36,7 @@ public class Main {
                 System.out.println(" ");
                 System.out.println("Digite a opção desejada: ");
                 int opcao = input.nextInt();
-                if (opcao != 4) {
+                if (opcao != 4 && opcao < 5) {
                     if (opcao == 1) {
                         System.out.printf("Saldo atual: R$ %.2f%n", saldo);
                     } else if (opcao == 2) {
@@ -54,9 +54,11 @@ public class Main {
                             System.out.printf("Valor enviado, saldo atual é de: R$ %.2f%n", saldo);
                         }
                     }
-                } else {
+                } else if (opcao == 4) {
                     System.out.println("Aplicaçao encerrada");
                     break;
+                } else {
+                    System.out.println("Opcao invalida");
                 }
             }
         } else {
