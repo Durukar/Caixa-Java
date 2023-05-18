@@ -1,7 +1,7 @@
-package br.com.CaixaEletronic.Project;
+package br.com.CaixaEletronic.Project.menu;
 
 public class Menu {
-    public String menu() {
+    public void menu() {
         System.out.println(" ");
         System.out.println("Operações");
         System.out.println(" ");
@@ -16,6 +16,14 @@ public class Menu {
                         """);
         System.out.println(" ");
         System.out.println("Digite a opção desejada: ");
-        return null;
+    }
+
+    public void mensagemBoasVindas() {
+        System.out.println("""
+                Bem vindo ao CH Bank!!!
+                
+                Precisamos de alguns dados iniciais para dar inicio a sua conta!!
+         
+                """);
     }
 }

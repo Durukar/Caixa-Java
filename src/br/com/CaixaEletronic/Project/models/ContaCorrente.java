@@ -1,6 +1,8 @@
-package br.com.CaixaEletronic.Project;
+package br.com.CaixaEletronic.Project.models;
 
-public class ContaCorrente  extends Banco{
+import br.com.CaixaEletronic.Project.models.Banco;
+
+public class ContaCorrente  extends Banco {
     private boolean emprestimo;
     private double limiteEmprestimo;
     private boolean cartaoDeCredito;

@@ -1,4 +1,4 @@
-package br.com.CaixaEletronic.Project;
+package br.com.CaixaEletronic.Project.models;
 import java.util.Scanner;
 import java.util.Random;
 public class Banco {

@@ -1,28 +1,25 @@
-import br.com.CaixaEletronic.Project.ContaCorrente;
-import br.com.CaixaEletronic.Project.Menu;
+package br.com.CaixaEletronic.Project;
+
+import br.com.CaixaEletronic.Project.models.ContaCorrente;
+import br.com.CaixaEletronic.Project.menu.Menu;
+import br.com.CaixaEletronic.Project.login.Authentication;
+
+import javax.naming.AuthenticationException;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         ContaCorrente conta = new ContaCorrente();
+        Authentication authentication = new Authentication();
         Menu menu = new Menu();
         Scanner input = new Scanner(System.in);
-
-        System.out.println("""
-                Bem vindo ao CH Bank!!!
-                
-                Precisamos de alguns dados iniciais para dar inicio a sua conta!!
-         
-                """);
-        conta.setCorrentista();
-        System.out.println("Todo correntista começa com o saldo 0.");
-        conta.randomizarConta();
-        System.out.println("O numero da sua conta é: " + conta.getNumeroDaConta());
-        conta.spaceScreen();
-        conta.fichaConta();
-
-        while(true) {
-            String meuMenu = menu.menu();
+        while (!authentication.getAutenticado()) {
+            authentication.setLogin();
+            authentication.setSenha();
+            authentication.valida();
+        }
+        while (true) {
+            menu.menu();
             int opcao = input.nextInt();
             if (opcao != 7 && opcao < 8) {
                 if (opcao == 1) {
