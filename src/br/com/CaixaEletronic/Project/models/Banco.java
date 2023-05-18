@@ -4,55 +4,55 @@ import java.util.Random;
 public class Banco {
     Scanner input = new Scanner(System.in);
     Random contaRandom = new Random();
-    private String correntista;
-    private int numeroDaConta;
-    private double saldo;
-    private double deposito;
-    private double transferir;
+    private String accountHolder;
+    private int accountNumber;
+    private double balance;
+    private double deposit;
+    private double transfer;
 
 
     public void randomizarConta(){
-        if (numeroDaConta <= 0) {
-            numeroDaConta = contaRandom.nextInt(9000);
+        if (accountNumber <= 0) {
+            accountNumber = contaRandom.nextInt(9000);
         } else {
             System.out.println("Operação nao permitida, a conta ja possui numero");
         }
     }
 
 
-    public double setTransferir() {
+    public double setTransfer() {
         System.out.println("Informe o valor a ser transferido: ");
-        transferir = input.nextDouble();
-        if (saldo < transferir) {
-            System.out.println("Não é possivel transferir R$ " + transferir + " pois o valor esta acima do valor que possui na conta.");
-            return saldo -= 0;
+        transfer = input.nextDouble();
+        if (balance < transfer) {
+            System.out.println("Não é possivel transferir R$ " + transfer + " pois o valor esta acima do valor que possui na conta.");
+            return balance -= 0;
         } else {
             System.out.println("Valor transferido");
-            return saldo -= transferir;
+            return balance -= transfer;
         }
     }
 
-    public double setDeposito() {
+    public double setDeposit() {
         System.out.println("Informe o valor a ser depositado: ");
-        deposito = input.nextDouble();
-        return saldo += deposito;
+        deposit = input.nextDouble();
+        return balance += deposit;
     }
 
-    public String getCorrentista() {
-        return correntista;
+    public String getAccountHolder() {
+        return accountHolder;
     }
 
     public void setCorrentista() {
         System.out.println("Digite o nome do correntista: ");
-        this.correntista = input.nextLine();
+        this.accountHolder = input.nextLine();
     }
 
-    public int getNumeroDaConta() {
-        return numeroDaConta;
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    public double getSaldo() {
-        return saldo;
+    public double getBalance() {
+        return balance;
     }
 
     public void fichaConta() {
@@ -66,7 +66,7 @@ public class Banco {
                         Saldo inicial:  R$ %.2f
                         **********************************************
 
-                        """.formatted(correntista, numeroDaConta, saldo));
+                        """.formatted(accountHolder, accountNumber, balance));
     }
 
     public void spaceScreen() {

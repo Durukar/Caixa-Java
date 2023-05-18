@@ -3,9 +3,9 @@ import br.com.CaixaEletronic.Project.models.Banco;
 import java.util.Scanner;
 public class Authentication extends Banco {
     private String login;
-    private int senha;
+    private int password;
 
-    private boolean autenticado;
+    private boolean authenticated;
 
     Scanner input = new Scanner(System.in);
     public String getLogin() {
@@ -18,26 +18,26 @@ public class Authentication extends Banco {
         return login = inputUsuario;
     }
 
-    public int getSenha() {
-        return senha;
+    public int getPassword() {
+        return password;
     }
 
-    public int setSenha() {
+    public int setPassword() {
         System.out.println("Informe a senha: ");
         int inputSenha = input.nextInt();
-        return senha = inputSenha;
+        return password = inputSenha;
     }
 
-    public boolean valida() {
-        if (getLogin().equals("ldavila") && getSenha() == 156085) {
+    public boolean validates() {
+        if (getLogin().equals("ldavila") && getPassword() == 156085) {
             System.out.println("Usuario e senha validados");
-            return autenticado = true;
+            return authenticated = true;
         } else {
             System.out.println("Usuario ou senha incorreto");
-            return autenticado = false;
+            return authenticated = false;
         }
     }
-    public boolean getAutenticado(){
-        return autenticado;
+    public boolean getAuthenticated(){
+        return authenticated;
     }
 }

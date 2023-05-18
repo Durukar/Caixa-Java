@@ -1,43 +1,42 @@
 package br.com.CaixaEletronic.Project;
 
-import br.com.CaixaEletronic.Project.models.ContaCorrente;
+import br.com.CaixaEletronic.Project.models.CheckingAccount;
 import br.com.CaixaEletronic.Project.menu.Menu;
 import br.com.CaixaEletronic.Project.login.Authentication;
 
-import javax.naming.AuthenticationException;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ContaCorrente conta = new ContaCorrente();
+        CheckingAccount account = new CheckingAccount();
         Authentication authentication = new Authentication();
         Menu menu = new Menu();
         Scanner input = new Scanner(System.in);
-        while (!authentication.getAutenticado()) {
+        while (!authentication.getAuthenticated()) {
             authentication.setLogin();
-            authentication.setSenha();
-            authentication.valida();
+            authentication.setPassword();
+            authentication.validates();
         }
         while (true) {
             menu.menu();
-            int opcao = input.nextInt();
-            if (opcao != 7 && opcao < 8) {
-                if (opcao == 1) {
-                    System.out.println("O saldo da conta é: " + conta.getSaldo());
-                } else if (opcao == 2) {
-                    conta.setDeposito();
-                } else if (opcao == 3) {
-                    conta.setTransferir();
-                } else if (opcao == 4) {
-                    conta.isEmprestimo();
-                } else if (opcao == 5) {
-                    conta.isCartaoDeCredito();
+            int option = input.nextInt();
+            if (option != 7 && option < 8) {
+                if (option == 1) {
+                    System.out.println("The account balance is: " + account.getBalance());
+                } else if (option == 2) {
+                    account.setDeposit();
+                } else if (option == 3) {
+                    account.setTransfer();
+                } else if (option == 4) {
+                    account.isLoan();
+                } else if (option == 5) {
+                    account.isCreditCard();
                 } else {
-                    System.out.println("Modulo ainda não aplicado");
+                    System.out.println("Module not yet applied");
                 }
             } else {
-                System.out.println("Obrigado por utilizar a CH Bank!");
-                System.out.println("Aplicação será encerrada...");
+                System.out.println("Thanks for using CH Bank!");
+                System.out.println("Application will be terminated...");
                 break;
             }
         }
